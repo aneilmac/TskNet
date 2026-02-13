@@ -1,6 +1,5 @@
 name: "Generate Bindings"
 description: "Generate .NET bindings"
-inputs:
 runs:
   using: "composite"
   steps:
