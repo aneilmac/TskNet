@@ -1,6 +1,6 @@
-﻿namespace Sleuthkit;
+﻿using System.Runtime.InteropServices;
 
-public unsafe partial struct TSK_LOCK_T
-{
-    public readonly void* _dummy;
-}
+namespace Sleuthkit;
+
+[StructLayout(LayoutKind.Explicit, Size = 40)]
+public struct TSK_LOCK_T;

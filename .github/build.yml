@@ -1,0 +1,10 @@
+name: SleuthKit-Net - Build & Pack
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    branches: [ "main", "develop" ]
+
+env:
+  BUILD_NUMBER: ${{ github.run_number }}
