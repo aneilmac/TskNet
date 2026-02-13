@@ -1,4 +1,4 @@
-name: SleuthKit-Net - Build & Pack
+name: Tsk-Net - Build & Pack
 
 on:
   workflow_dispatch:

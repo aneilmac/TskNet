@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="src/Sleuthkit.csproj" />
-  <Project Path="tests/Sleuthkit.Tests.csproj" />
-</Solution>

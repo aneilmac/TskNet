@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sleuthkit;
+namespace Tsk;
 
 [StructLayout(LayoutKind.Explicit, Size = 40)]
 public struct TSK_LOCK_T;

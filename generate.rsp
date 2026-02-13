@@ -27,7 +27,7 @@ sleuthkit/tsk/pool/tsk_pool.h
 -x
 c
 --namespace
-Sleuthkit.FFI
+Tsk.FFI
 --output-mode
 CSharp
 --output
