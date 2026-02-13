@@ -1,0 +1,22 @@
+name: NetWintun - Test
+
+on: [push]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+        configuration: Release
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Generate .NET bindings
+        uses: ./.github/actions/generate-bindings
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c  ${{ matrix.configuration }} --no-restore
+      - name: Test
+        run: dotnet test -c  ${{ matrix.configuration }} --no-build --report-xunit-trx --report-xunit-trx-filename "testResults.trx"
