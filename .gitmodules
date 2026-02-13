@@ -1,0 +1,4 @@
+[submodule "sleuthkit"]
+	path = sleuthkit
+	url = https://github.com/sleuthkit/sleuthkit
+	branch=release-4.14.0
