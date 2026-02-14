@@ -9,6 +9,6 @@ env:
   BUILD_NUMBER: ${{ github.run_number }}
 jobs:
   call-workflow-passing-data:
-    uses: .github/workflows/build-aff-lib.yml
+    uses: ./.github/workflows/build-aff-lib.yml
     with:
       artifact-name: afflib
