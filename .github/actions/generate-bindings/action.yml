@@ -3,6 +3,11 @@ description: "Generate .NET bindings"
 runs:
   using: "composite"
   steps:
+    - name: Choco help
+      if: contains(matrix.os, 'windows')
+      uses: crazy-max/ghaction-chocolatey@v3
+      with:
+        args: install llvm --version 21.1.8 -y
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
     - name: Restore tools
