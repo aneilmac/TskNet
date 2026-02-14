@@ -6,6 +6,8 @@ runs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
     - name: Restore tools
+      shell: bash
       run: dotnet tool restore
     - name: Generate FFI bindings
+      shell: bash
       run: dotnet tool run ClangSharpPInvokeGenerator "@generate.rsp"
