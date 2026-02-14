@@ -14,11 +14,11 @@ jobs:
           repository: sshock/AFFLIBv3
           ref: v3.7.22
       - shell: bash
-        run: ./bootstrap.sh && ./configure --prefix="./build"
+        run: ./bootstrap.sh && ./configure --prefix=/build
       - shell: bash
         run: make && make install
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: ./build
+          path: /build
           retention-days: 1
