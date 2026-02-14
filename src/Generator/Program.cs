@@ -61,7 +61,8 @@ var clangCommandLineArgs = string.IsNullOrWhiteSpace(std)
         "-Wno-pragma-once-outside-header"       // We are processing files which may be header files
     ];
 
-string[] includeDirectories = [.. tskConfig.IncludeDirectories, 
+string[] includeDirectories = [
+    .. tskConfig.IncludeDirectories, 
     .. OperatingSystem.IsWindows() ? 
         tskConfig.IncludeDirectoriesWindows : 
         tskConfig.IncludeDirectoriesLinux];
