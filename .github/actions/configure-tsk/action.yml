@@ -12,4 +12,4 @@ runs:
       if: startsWith(matrix.os, 'ubuntu-')
       working-directory: ./sleuthkit
       shell: bash
-      run: ./configure -h
+      run: ./configure
