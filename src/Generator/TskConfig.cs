@@ -8,7 +8,13 @@ public class TskConfig
     
     public string LanguageStandard { get; set; }
     
-    public string IncludePath { get; set; }
+    public string FileDirectory { get; set; }
+    
+    public List<string> IncludeDirectories { get; set; }
+    
+    public List<string> IncludeDirectoriesWindows { get; set; }
+    
+    public List<string> IncludeDirectoriesLinux { get; set; }
     
     public string DefaultNamespace { get; set; }
     

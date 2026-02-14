@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ClangSharp;
 using ClangSharp.Interop;
@@ -38,7 +40,7 @@ var options = new PInvokeGeneratorConfiguration(
     ExcludedNames = tskConfig.ExcludeNames,
     RemappedNames = tskConfig.RemappedNames,
     LibraryPath = tskConfig.LibraryPath,
-    TraversalNames = tskConfig.TraversalNames.Select(c => Path.Combine(tskConfig.IncludePath, c)).ToArray(),
+    TraversalNames = tskConfig.TraversalNames.Select(c => Path.Combine(tskConfig.FileDirectory, c)).ToArray(),
 };
 
 using var generator = new PInvokeGenerator(options);
@@ -60,11 +62,16 @@ var clangCommandLineArgs = string.IsNullOrWhiteSpace(std)
         "-Wno-pragma-once-outside-header"       // We are processing files which may be header files
     ];
 
-clangCommandLineArgs = [.. clangCommandLineArgs, $"--include-directory={tskConfig.IncludePath}"];
+string[] includeDirectories = [.. tskConfig.IncludeDirectories, 
+    .. OperatingSystem.IsWindows() ? 
+        tskConfig.IncludeDirectoriesWindows : 
+        tskConfig.IncludeDirectoriesLinux];
+
+clangCommandLineArgs = [.. clangCommandLineArgs, .. includeDirectories.Select(c=> $"--include-directory={c}")];
 
 foreach (var file in tskConfig.Files)
 {
-    var fullPath = Path.Combine(tskConfig.IncludePath, file);
+    var fullPath = Path.Combine(tskConfig.FileDirectory, file);
     logger.LogInformation("Parsing {FullPath}",fullPath);
 
     CXTranslationUnit.TryParse(generator.IndexHandle, fullPath, clangCommandLineArgs, [], translationFlags, out var unit);

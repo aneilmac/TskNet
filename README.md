@@ -4,7 +4,7 @@
 
 ## Generating FFI bindings
 
-FFI bindings are generated via [ClangSharpP][ClangSharp].
+FFI bindings are generated via [ClangSharp][ClangSharp].
 
 ```bash
 dotnet run --project .\src\Generator\Generator.csproj
