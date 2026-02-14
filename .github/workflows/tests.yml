@@ -13,6 +13,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+      - name: Configure TSK
+        uses: ./.github/actions/configure-tsk
       - name: Generate .NET bindings
         uses: ./.github/actions/generate-bindings
       - name: Restore dependencies

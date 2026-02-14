@@ -3,13 +3,14 @@ description: "Generate .NET bindings"
 runs:
   using: "composite"
   steps:
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v5
-    - name: Set up Clang
+    - name: Set up Clang (Linux)
+      if: startsWith(matrix.os, 'ubuntu-')
       uses: egor-tensin/setup-clang@v2
       with:
         version: 21
         platform: x64
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v5
     - name: Generate FFI bindings
       shell: bash
       run: dotnet run --project src/Generator/Generator.csproj

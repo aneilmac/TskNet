@@ -1,0 +1,15 @@
+﻿name: configure-tsk
+description: configure-tsk
+runs:
+  using: "composite"
+  steps:
+    - name: Run bootstrap (Linux)
+      if: startsWith(matrix.os, 'ubuntu-')
+      working-directory: ./sleuthkit
+      shell: bash
+      run: ./bootstrap
+    - name: Run bootstrap (Linux)
+      if: startsWith(matrix.os, 'ubuntu-')
+      working-directory: ./sleuthkit
+      shell: bash
+      run: ./configure -h
