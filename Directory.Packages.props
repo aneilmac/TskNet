@@ -4,7 +4,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="libclang" Version="21.1.8" />
-        <PackageReference Include="libClangSharp" Version="21.1.8.2" />
+        <PackageVersion Include="libClangSharp" Version="21.1.8.2" />
         <PackageVersion Include="GitVersion.MsBuild" Version="6.5.1" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
         <PackageVersion Include="xunit.v3" Version="3.2.2" />
