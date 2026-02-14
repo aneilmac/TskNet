@@ -1,10 +1,6 @@
 name: Tsk-Net - Build & Pack
 
-on:
-  workflow_dispatch:
-  workflow_call:
-  pull_request:
-    branches: [ "main", "develop" ]
+on: [push]
 env:
   BUILD_NUMBER: ${{ github.run_number }}
 jobs:
