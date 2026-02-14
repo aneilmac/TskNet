@@ -6,6 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ windows-latest ]
         configuration: [Release]
     steps:
       - uses: actions/checkout@v6
