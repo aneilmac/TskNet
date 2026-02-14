@@ -21,5 +21,11 @@
         <PackageReference Include="GitVersion.MsBuild">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="libclang">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="libClangSharp">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
     </ItemGroup>
 </Project>

@@ -3,15 +3,14 @@ description: "Generate .NET bindings"
 runs:
   using: "composite"
   steps:
-    - name: Install LLVM and Clang (Linux)
-      if: contains(matrix.os, 'ubuntu')
-      shell: bash
-      run: sudo apt-get install clang
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
     - name: Restore tools
       shell: bash
       run: dotnet tool restore
+    - name: Restore
+      shell: bash
+      run: dotnet restore
     - name: Generate FFI bindings
       shell: bash
       run: dotnet tool run ClangSharpPInvokeGenerator "@generate.rsp"
