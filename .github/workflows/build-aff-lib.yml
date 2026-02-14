@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: 'https://github.com/sshock/AFFLIBv3'
+          repository: sshock/AFFLIBv3
           ref: 'v3.3.6'
       - shell: bash
         run: ./bootstrap && ./configure --prefix="./build"
