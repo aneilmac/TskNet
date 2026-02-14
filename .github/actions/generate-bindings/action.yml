@@ -3,6 +3,11 @@ description: "Generate .NET bindings"
 runs:
   using: "composite"
   steps:
+    - name: Set up Clang
+      uses: egor-tensin/setup-clang@v2
+      with:
+        version: latest
+        platform: x64
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
     - name: Restore tools
