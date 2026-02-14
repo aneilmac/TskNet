@@ -1,0 +1,24 @@
+﻿name: Build AFF Lib
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          repository: 'https://github.com/sshock/AFFLIBv3'
+          ref: 'v3.3.6'
+      - shell: bash
+        run: ./bootstrap && ./configure --prefix="./build"
+      - shell: bash
+        run: make && make install
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: ./build
+          retention-days: 1

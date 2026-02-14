@@ -5,6 +5,10 @@ on:
   workflow_call:
   pull_request:
     branches: [ "main", "develop" ]
-
 env:
   BUILD_NUMBER: ${{ github.run_number }}
+jobs:
+  call-workflow-passing-data:
+    uses: .github/workflows/build-aff-lib.yml
+    with:
+      artifact-name: afflib
