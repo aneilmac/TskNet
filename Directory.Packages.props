@@ -5,6 +5,13 @@
     <ItemGroup>
         <PackageVersion Include="libclang" Version="21.1.8" />
         <PackageVersion Include="libClangSharp" Version="21.1.8.2" />
+        <PackageVersion Include="ClangSharp" Version="21.1.8.2" />
+        <PackageVersion Include="ClangSharp.PInvokeGenerator" Version="21.1.8.2" />
+        <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.3" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="10.0.3" />
         <PackageVersion Include="GitVersion.MsBuild" Version="6.5.1" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
         <PackageVersion Include="xunit.v3" Version="3.2.2" />
