@@ -65,7 +65,7 @@ clangCommandLineArgs = [.. clangCommandLineArgs, $"--include-directory={tskConfi
 foreach (var file in tskConfig.Files)
 {
     var fullPath = Path.Combine(tskConfig.IncludePath, file);
-    logger.LogInformation("Parsing {FulLPath}",fullPath);
+    logger.LogInformation("Parsing {FullPath}",fullPath);
 
     CXTranslationUnit.TryParse(generator.IndexHandle, fullPath, clangCommandLineArgs, [], translationFlags, out var unit);
     using var translationUnit = TranslationUnit.GetOrCreate(unit);
