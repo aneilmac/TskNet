@@ -14,3 +14,5 @@ runs:
     - name: Generate FFI bindings
       shell: bash
       run: dotnet run --project src/Generator/Generator.csproj
+      env:
+        TSK_GENERATOR_TskConfig__IncludeDirectoriesLinux__0: /usr/lib/clang/21/include

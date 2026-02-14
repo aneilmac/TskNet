@@ -10,6 +10,7 @@ using static ClangSharp.Interop.CXTranslationUnit_Flags;
 
 var config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", false, true)
+    .AddEnvironmentVariables("TSK_GENERATOR_")
     .Build();
 
 using ILoggerFactory factory = LoggerFactory
