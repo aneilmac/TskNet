@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ClangSharp;
@@ -68,12 +67,12 @@ string[] includeDirectories = [.. tskConfig.IncludeDirectories,
         tskConfig.IncludeDirectoriesLinux];
 
 clangCommandLineArgs = [.. clangCommandLineArgs, .. includeDirectories.Select(c=> $"--include-directory={c}")];
+logger.LogDebug("Clang CLI args {Args}", (object) clangCommandLineArgs);
 
 foreach (var file in tskConfig.Files)
 {
     var fullPath = Path.Combine(tskConfig.FileDirectory, file);
     logger.LogInformation("Parsing {FullPath}",fullPath);
-
     CXTranslationUnit.TryParse(generator.IndexHandle, fullPath, clangCommandLineArgs, [], translationFlags, out var unit);
     using var translationUnit = TranslationUnit.GetOrCreate(unit);
     generator.GenerateBindings(translationUnit, fullPath, clangCommandLineArgs, translationFlags);

@@ -9,12 +9,12 @@ public class TskConfig
     public string LanguageStandard { get; set; }
     
     public string FileDirectory { get; set; }
-    
-    public List<string> IncludeDirectories { get; set; }
-    
-    public List<string> IncludeDirectoriesWindows { get; set; }
-    
-    public List<string> IncludeDirectoriesLinux { get; set; }
+
+    public List<string> IncludeDirectories { get; set; } = [];
+
+    public List<string> IncludeDirectoriesWindows { get; set; } = [];
+
+    public List<string> IncludeDirectoriesLinux { get; set; } = [];
     
     public string DefaultNamespace { get; set; }
     
@@ -24,11 +24,11 @@ public class TskConfig
     
     public string LibraryPath { get; set; }
 
-    public List<string> TraversalNames { get; set; }
-    
-    public List<string> Files { get; set; }
-    
-    public List<string> ExcludeNames { get; set; }
-    
-    public Dictionary<string, string> RemappedNames { get; set; }
+    public List<string> TraversalNames { get; set; } = [];
+
+    public List<string> Files { get; set; } = [];
+
+    public List<string> ExcludeNames { get; set; } = [];
+
+    public Dictionary<string, string> RemappedNames { get; set; } = [];
 }
