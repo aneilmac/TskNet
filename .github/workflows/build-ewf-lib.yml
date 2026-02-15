@@ -13,8 +13,8 @@ jobs:
         with:
           repository: sleuthkit/libewf_64bit
           ref: 22ca21347a1f32b590dda573644872d50453fe33
-      #- name: install_dependencies
-      #  run: sudo apt install chrpath libcurl4-openssl-dev libexpat1-dev libfuse-dev libssl-dev openssl zlib1g-dev
+      - name: install_dependencies
+        run: sudo apt install libssl-dev openssl zlib1g-dev
       - name: Generate libewf
         run: |
           ./configure --prefix=${{ github.workspace }}/build
