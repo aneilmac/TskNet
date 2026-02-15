@@ -14,7 +14,7 @@ jobs:
           repository: libyal/libvhdi
           ref: 20251119
       - name: install_dependencies
-        run: sudo apt-get -y install libfuse3-dev
+        run: sudo apt-get -y install autoconf automake autopoint build-essential git libfuse3-dev
       - name: Generate libvhdi
         run: |
           ./synclibs.sh

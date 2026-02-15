@@ -14,7 +14,7 @@ jobs:
           repository: libyal/libewf
           ref: 20240506
       - name: install_dependencies
-        run: sudo apt install chrpath libcurl4-openssl-dev libexpat1-dev libfuse-dev libssl-dev openssl zlib1g-dev
+        run: sudo apt-get -y install autoconf automake autopoint build-essential git libfuse3-dev
       - name: Generate libewf
         run: |
           ./synclibs.sh

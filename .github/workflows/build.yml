@@ -8,10 +8,10 @@ jobs:
     uses: ./.github/workflows/build-aff-lib.yml
     with:
       artifact-name: afflib
-#  build-ewf:
-#    uses: ./.github/workflows/build-ewf-lib.yml
-#    with:
-#      artifact-name: ewflib
+  build-ewf:
+    uses: ./.github/workflows/build-ewf-lib.yml
+    with:
+      artifact-name: ewflib
   build-vhdi:
     uses: ./.github/workflows/build-vhdi-lib.yml
     with:

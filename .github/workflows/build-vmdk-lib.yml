@@ -13,6 +13,8 @@ jobs:
         with:
           repository: libyal/libvmdk
           ref: 20240510
+      - name: install_dependencies
+        run: sudo apt-get -y install autoconf automake autopoint build-essential git libfuse3-dev
       - name: Generate libvmdk
         run: |
           ./synclibs.sh 
