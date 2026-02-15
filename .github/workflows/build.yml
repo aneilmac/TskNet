@@ -4,11 +4,11 @@ on: [push]
 env:
   BUILD_NUMBER: ${{ github.run_number }}
 jobs:
-  call-workflow-passing-data:
+  build-aff:
     uses: ./.github/workflows/build-aff-lib.yml
     with:
       artifact-name: afflib
-  call-workflow-passing-data:
+  build-ewf:
     uses: ./.github/workflows/build-ewf-lib.yml
     with:
       artifact-name: ewflib
