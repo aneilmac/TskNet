@@ -20,3 +20,11 @@ jobs:
     uses: ./.github/workflows/build-vmdk-lib.yml
     with:
       artifact-name: vmdklib
+  build-slvm:
+    uses: ./.github/workflows/build-slvm-lib.yml
+    with:
+      artifact-name: slvm
+  build-slvm:
+    uses: ./.github/workflows/build-bfio-lib.yml
+    with:
+      artifact-name: bfio
