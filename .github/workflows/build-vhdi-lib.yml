@@ -1,4 +1,4 @@
-﻿name: Build EWF Lib
+﻿name: Build VHDI Lib
 on:
   workflow_call:
     inputs:
@@ -11,13 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: libyal/libewf
-          ref: 20240506
+          repository: libyal/libvhdi
+          ref: 20251119
       - name: install_dependencies
-        run: sudo apt install chrpath libcurl4-openssl-dev libexpat1-dev libfuse-dev libssl-dev openssl zlib1g-dev
-      - name: Generate libewf
+        run: sudo apt-get -y install autoconf automake autopoint build-essential git libfuse3-dev libtool pkg-config
+      - name: Generate libvhdi
         run: |
-          ./synclibs.sh
+          ./synclibs.sh --use-head
           ./autogen.sh
           ./configure --prefix=${{ github.workspace }}/build
           make

@@ -12,3 +12,7 @@ jobs:
     uses: ./.github/workflows/build-ewf-lib.yml
     with:
       artifact-name: ewflib
+  build-vhdi:
+    uses: ./.github/workflows/build-vhdi-lib.yml
+    with:
+      artifact-name: vhdilib
