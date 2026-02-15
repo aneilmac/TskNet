@@ -8,3 +8,7 @@ jobs:
     uses: ./.github/workflows/build-aff-lib.yml
     with:
       artifact-name: afflib
+  call-workflow-passing-data:
+    uses: ./.github/workflows/build-ewf-lib.yml
+    with:
+      artifact-name: ewflib

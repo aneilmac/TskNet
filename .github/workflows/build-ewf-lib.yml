@@ -1,0 +1,27 @@
+﻿name: Build EWF Lib
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          repository: sleuthkit/libewf_64bit
+          ref: 22ca21347a1f32b590dda573644872d50453fe33
+      #- name: install_dependencies
+      #  run: sudo apt install chrpath libcurl4-openssl-dev libexpat1-dev libfuse-dev libssl-dev openssl zlib1g-dev
+      - name: Generate libewf
+        run: |
+          ./configure --prefix=${{ github.workspace }}/build
+          make
+          make install
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: ${{ github.workspace }}/build
+          retention-days: 1

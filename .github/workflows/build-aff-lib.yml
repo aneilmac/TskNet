@@ -13,10 +13,14 @@ jobs:
         with:
           repository: sshock/AFFLIBv3
           ref: v3.7.22
-      - shell: bash
-        run: ./bootstrap.sh && ./configure --prefix=${{ github.workspace }}/build
-      - shell: bash
-        run: make && make install
+      - name: install_dependencies
+        run: sudo apt install chrpath libcurl4-openssl-dev libexpat1-dev libfuse-dev libssl-dev openssl zlib1g-dev
+      - name: Generate libaff 
+        run: | 
+             ./bootstrap.sh
+             ./configure --prefix=${{ github.workspace }}/build
+             make
+             make install
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
