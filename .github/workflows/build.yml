@@ -7,24 +7,39 @@ jobs:
   build-aff:
     uses: ./.github/workflows/build-aff-lib.yml
     with:
-      artifact-name: afflib
+      artifact-name: libaff
   build-ewf:
-    uses: ./.github/workflows/build-ewf-lib.yml
+    uses: ./.github/workflows/build-libyal-dependency.yml
     with:
-      artifact-name: ewflib
+      artifact-name: libewf
+      repo-name: libyal/libewf
+      repo-ref: 20240506 
+      dependencies: autoconf automake autopoint build-essential libfuse3-dev
   build-vhdi:
-    uses: ./.github/workflows/build-vhdi-lib.yml
+    uses: ./.github/workflows/build-libyal-dependency.yml
     with:
-      artifact-name: vhdilib
+      artifact-name: libvhdi
+      repo-name: libyal/libvhdi
+      repo-ref: 20251119
+      dependencies: autoconf automake autopoint build-essential libfuse3-dev
   build-vmdk:
-    uses: ./.github/workflows/build-vmdk-lib.yml
+    uses: ./.github/workflows/build-libyal-dependency.yml
     with:
-      artifact-name: vmdklib
+      artifact-name: libvmdk
+      repo-name: libyal/libvmdk
+      repo-ref: 20240510
+      dependencies: autoconf automake autopoint build-essential libfuse3-dev
   build-slvm:
-    uses: ./.github/workflows/build-slvm-lib.yml
+    uses: ./.github/workflows/build-libyal-dependency.yml
     with:
-      artifact-name: slvm
+      artifact-name: libslvm
+      repo-name: libyal/libvslvm
+      repo-ref: 20240504
+      dependencies: autoconf automake autopoint libtool pkg-config
   build-bfio:
-    uses: ./.github/workflows/build-bfio-lib.yml
+    uses: ./.github/workflows/build-libyal-dependency.yml
     with:
-      artifact-name: bfio
+      artifact-name: libbfio
+      repo-name: libyal/libbfio
+      repo-ref: 20240414
+      dependencies: autoconf automake autopoint libtool pkg-config

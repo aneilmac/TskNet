@@ -1,8 +1,17 @@
-﻿name: Build SLVM Lib
+﻿name: Build Libyal dependency
 on:
   workflow_call:
     inputs:
       artifact-name:
+        required: true
+        type: string
+      repo-name:
+        required: true
+        type: string
+      repo-ref:
+        required: true
+        type: string
+      dependencies:
         required: true
         type: string
 jobs:
@@ -11,11 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: libyal/libvslvm
-          ref: 20240504
+          repository:  ${{ inputs.repo-name }}
+          ref: ${{ inputs.repo-ref }}
       - name: install_dependencies
-        run: sudo apt install git autoconf automake autopoint libtool pkg-config
-      - name: Generate libslvm
+        run: sudo apt-get -y install ${{ inputs.dependencies }}
+      - name: Generate
         run: |
           ./synclibs.sh 
           ./autogen.sh
