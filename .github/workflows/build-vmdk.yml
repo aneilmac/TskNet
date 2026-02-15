@@ -1,4 +1,4 @@
-﻿name: Build VHDI Lib
+﻿name: Build VMDK Lib
 on:
   workflow_call:
     inputs:
@@ -11,13 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: libyal/libvhdi
-          ref: 20251119
-      - name: install_dependencies
-        run: sudo apt-get -y install libfuse3-dev
-      - name: Generate libvhdi
+          repository: libyal/libvmdk
+          ref: 20240510
+      - name: Generate libvmdk
         run: |
-          ./synclibs.sh
+          ./synclibs.sh 
           ./autogen.sh
           ./configure --prefix=${{ github.workspace }}/build
           make
