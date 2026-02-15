@@ -11,12 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: sleuthkit/libewf_64bit
-          ref: 22ca21347a1f32b590dda573644872d50453fe33
-      - name: install_dependencies
-        run: sudo apt install libssl-dev openssl zlib1g-dev
+          repository: libyal/libewf
+          ref: 20240506
       - name: Generate libewf
         run: |
+          ./synclibs.sh
+          ./autogen.sh
           ./configure --prefix=${{ github.workspace }}/build
           make
           make install
