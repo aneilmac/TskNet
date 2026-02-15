@@ -24,7 +24,7 @@ jobs:
     uses: ./.github/workflows/build-slvm-lib.yml
     with:
       artifact-name: slvm
-  build-slvm:
+  build-bfio:
     uses: ./.github/workflows/build-bfio-lib.yml
     with:
       artifact-name: bfio
